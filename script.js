@@ -36,13 +36,11 @@ async function startSession() {
   updateTimer();
 }
 
-// 📱 Load model
 async function loadModel() {
   model = await cocoSsd.load();
   console.log("Model loaded");
 }
 
-// 🎥 Camera
 async function startCamera() {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -119,7 +117,6 @@ async function startCamera() {
   camera.start();
 }
 
-// 📱 Phone detection + BOX
 async function detectPhone() {
   if (!model) return;
 
@@ -146,7 +143,6 @@ async function detectPhone() {
   }
 }
 
-// ⏱️ Timer
 function updateTimer() {
   const interval = setInterval(() => {
     let remaining = endTime - Date.now();
