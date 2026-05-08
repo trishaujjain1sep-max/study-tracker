@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
   <title>Popstar Focus Tracker 💖</title>
-
-  <!-- 🎨 CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,22 +8,17 @@
 <canvas id="stars"></canvas>
 <div class="container">
 
-  <!-- 💿 Logo -->
   <h1 class="logo">💖 POPSTAR FOCUS 💿</h1>
 
-  <!-- 🎛 Controls -->
   <div class="controls">
     <input type="number" id="timeInput" placeholder="Enter minutes">
     <button id="startBtn">Start</button>
   </div>
 
-  <!-- ⏱️ Timer -->
   <h2 id="timer">00:00</h2>
 
-  <!-- ⚠️ Warning -->
   <h2 id="warning"></h2>
 
-  <!-- 🎥 Camera + Detection -->
   <div class="video-container">
     <video id="video" autoplay muted playsinline></video>
     <canvas id="canvas"></canvas>
@@ -35,15 +26,12 @@
 
 </div>
 
-<!-- 🧠 MediaPipe (Face tracking) -->
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh"></script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils"></script>
 
-<!-- 📱 TensorFlow (Phone detection) -->
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
 
-<!-- 🎯 Your logic -->
 <script src="script.js"></script>
 
 </body>
