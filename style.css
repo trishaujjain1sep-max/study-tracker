@@ -1,0 +1,236 @@
+/* 🌌 Base layout */
+body {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-family: "Comic Sans MS", cursive;
+  background: radial-gradient(circle at top, #2b0a3d, #0a001a);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* 🌌 Canvas stars (background) */
+#stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* 📦 Container */
+.container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* 💿 LOGO (cosmic sticker + holo + shine) */
+.logo {
+  position: relative;
+  overflow: hidden;
+
+  font-size: 48px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+
+  /* 🌈 holographic gradient */
+  background: linear-gradient(
+    45deg,
+    #ff66cc,
+    #a64dff,
+    #66ccff,
+    #ff66cc
+  );
+  background-size: 300%;
+
+  border: 3px solid rgba(255,255,255,0.8);
+
+  box-shadow:
+    0 0 15px #ff66cc,
+    0 0 30px #a64dff,
+    0 0 50px #66ccff;
+
+  color: white;
+
+  text-shadow:
+    0 0 10px pink,
+    0 0 20px violet,
+    2px 2px 5px black;
+
+  animation: holo 6s infinite linear, glowPulse 2s infinite, float 3s infinite;
+}
+
+/* 💿 Shine sweep */
+.logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+
+  animation: shine 3s infinite;
+}
+
+/* ✨ Animations */
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes holo {
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
+}
+
+@keyframes glowPulse {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.4); }
+  100% { filter: brightness(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* 🎛 Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* 🫧 Input */
+input {
+  width: 180px;
+  padding: 12px;
+
+  border-radius: 20px;
+  border: none;
+
+  font-size: 16px;
+
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+
+  color: white;
+
+  box-shadow:
+    inset 0 0 10px rgba(255,255,255,0.3),
+    0 0 10px #a64dff;
+}
+
+/* 💖 Button */
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+
+  background: linear-gradient(45deg, #ff66cc, #a64dff);
+
+  color: white;
+
+  box-shadow:
+    0 0 15px #ff66cc,
+    0 0 30px #a64dff;
+
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 25px #ff66cc,
+    0 0 50px #a64dff;
+}
+
+/* ⏱️ Timer */
+#timer {
+  font-size: 32px;
+  margin-top: 10px;
+
+  text-shadow:
+    0 0 10px #66ccff,
+    0 0 20px #a64dff;
+}
+
+/* ⚠️ Warning */
+#warning {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 10px;
+
+  color: #ff66cc;
+
+  text-shadow:
+    0 0 10px red,
+    0 0 20px pink;
+}
+
+/* 🎥 Video container */
+.video-container {
+  position: relative;
+  margin-top: 20px;
+
+  padding: 6px;
+  border-radius: 20px;
+
+  background: linear-gradient(45deg, #ff66cc, #a64dff, #66ccff);
+
+  box-shadow:
+    0 0 20px #ff66cc,
+    0 0 40px #a64dff;
+}
+
+/* 🎥 Video */
+video, canvas {
+  width: 400px;
+  border-radius: 15px;
+}
+
+/* 📦 Canvas overlay */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ✨ Soft glow overlay */
+.video-container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 15px;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 102, 204, 0.2),
+    rgba(166, 77, 255, 0.15),
+    transparent
+  );
+
+  pointer-events: none;
+}
